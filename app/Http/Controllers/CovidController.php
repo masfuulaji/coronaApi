@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 class CovidController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $response = Http::get('https://api.kawalcorona.com/indonesia/provinsi');
         $data =collect($response->json());
-        dd($data->flatten(1));
+        $data = $data->flatten(1);
+        // dd($data);
+        return view('covid')
+        ->with(compact('data'));
     }
 }

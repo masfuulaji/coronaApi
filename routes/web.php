@@ -17,4 +17,5 @@ use App\Http\Controllers\CovidController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/data', [CovidController::class,'index']);
